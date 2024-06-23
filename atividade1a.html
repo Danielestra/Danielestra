@@ -3,11 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1a</title>
+    <title>Calculadora de Média</title>
+    <style>
+        .aprovado {
+            color: blue;
+        }
+        .reprovado {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>Atividade 1a</h1>
-    <p>Conteúdo da atividade 1a aqui.</p>
-    <a href="index.html">Voltar para a página inicial</a>
+    <h1>Calculadora de Média</h1>
+    <p>Média: <span id="media"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
+
+    <script>
+        var nota1 = parseFloat(prompt("Digite a primeira nota:"));
+        var nota2 = parseFloat(prompt("Digite a segunda nota:"));
+
+        var media = (nota1 + nota2) / 2;
+        var situacao = "";
+        var cor = "";
+
+        if (media >= 6) {
+            situacao = "Aprovado";
+            cor = "aprovado";
+        } else {
+            situacao = "Reprovado";
+            cor = "reprovado";
+        }
+
+        document.getElementById("media").innerHTML = media.toFixed(2);
+        document.getElementById("situacao").innerHTML = situacao;
+        document.getElementById("situacao").className = cor;
+    </script>
 </body>
 </html>
