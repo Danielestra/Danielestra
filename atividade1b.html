@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade 1b</title>
+    <title>Calculadora de Média</title>
+    <style>
+        .aprovado {
+            color: blue;
+        }
+        .reprovado {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>Atividade 1b</h1>
-    <p>Conteúdo da atividade 1b aqui.</p>
-    <a href="index.html">Voltar para a página inicial</a>
+    <h1>Calculadora de Média</h1>
+    <form id="form-notas">
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" required>
+        <br><br>
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" required>
+        <br><br>
+        <button type="button" onclick="calcularMedia()">Calcular</button>
+    </form>
+    <p>Média: <span id="media"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
+
+    <script>
+        function calcularMedia() {
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+
+            var media = (nota1 + nota2) / 2;
+            var situacao = "";
+            var cor = "";
+
+            if (media >= 6) {
+                situacao = "Aprovado";
+                cor = "aprovado";
+            } else {
+                situacao = "Reprovado";
+                cor = "reprovado";
+            }
+
+            document.getElementById("media").innerHTML = media.toFixed(2);
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").className = cor;
+        }
+    </script>
 </body>
 </html>
